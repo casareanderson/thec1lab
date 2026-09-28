@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>THEC1LAB TikTok connect</title>
+<style>
+:root{color-scheme:dark;--bg:#0e0e0e;--ink:#f3f1ec;--dim:#a39e94;--line:#2c2c2c;--silver:#d7dbe0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;padding:48px 16px}
+.wrap{max-width:560px;margin:0 auto;display:grid;gap:16px}
+h1{margin:0;font-size:clamp(24px,6vw,32px)}
+p{margin:0;color:var(--dim)}
+textarea{width:100%;min-height:120px;background:#171717;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px;font:13px/1.4 ui-monospace,Menlo,Consolas,monospace;resize:vertical}
+button{justify-self:start;background:var(--silver);color:#111;border:0;border-radius:999px;padding:12px 22px;font-weight:700;font-size:16px;cursor:pointer}
+button:focus-visible{outline:2px solid var(--silver);outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>THEC1LAB · TikTok connect</h1>
+  <p id="msg">This page finishes connecting our own TikTok account to our posting tool. Copy the address below and paste it back to Claude.</p>
+  <textarea id="u" readonly aria-label="Address to copy"></textarea>
+  <button id="b" type="button">Copy address</button>
+</div>
+<script>
+var u = document.getElementById("u"), b = document.getElementById("b");
+u.value = location.href;
+if (!/[?&](code|error)=/.test(location.search)) document.getElementById("msg").textContent = "Nothing to copy here: this page is only used when connecting our TikTok account.";
+b.onclick = function () {
+  u.select();
+  (navigator.clipboard ? navigator.clipboard.writeText(u.value) : Promise.reject()).then(
+    function () { b.textContent = "Copied"; },
+    function () { document.execCommand("copy"); b.textContent = "Copied"; });
+};
+</script>
+</body>
+</html>
