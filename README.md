@@ -58,5 +58,3 @@ To change the policy or terms, edit the HTML, update the "Last updated" date at 
 ## Licence and credits
 
 All rights reserved. The text and design of this site belong to THEC1LAB. The repo has no open-source licence.
-
-If this is useful to you, [buy me a coffee](https://buymeacoffee.com/iamc_tech) ☕
